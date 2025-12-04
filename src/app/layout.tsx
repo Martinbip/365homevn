@@ -4,8 +4,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "365homevn | Nội thất cao cấp | Đồ gỗ cao cấp",
-  description: "365homevn - Thương hiệu nội thất hàng đầu Việt Nam với hơn 25 năm kinh nghiệm",
+  title: "365home.com.vn | Nội thất cao cấp | Đồ gỗ cao cấp",
+  description: "365home.com.vn - Thương hiệu nội thất hàng đầu Việt Nam với hơn 25 năm kinh nghiệm",
 };
 
 export default function RootLayout({

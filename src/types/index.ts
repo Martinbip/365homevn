@@ -27,3 +27,21 @@ export interface MenuItem {
     items: NavItem[];
   }[];
 }
+
+export interface FeaturedCollection {
+  id: string;
+  title: string;
+  subtitle?: string;
+  image: string;
+  href: string;
+  size?: 'large' | 'small';
+}
+
+export interface Story {
+  id: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  href: string;
+  category?: string;
+}

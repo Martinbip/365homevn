@@ -1,11 +1,11 @@
 import React from 'react';
-import Container from '../common/Container';
-import Card from '../common/Card';
-import Link from '../common/Link';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Product } from '@/types';
 
 interface ProductGridProps {
   title: string;
+  subtitle?: string;
   products: Product[];
   viewAllLink?: string;
   className?: string;
@@ -13,31 +13,61 @@ interface ProductGridProps {
 
 export default function ProductGrid({ 
   title, 
+  subtitle,
   products, 
   viewAllLink,
   className = '' 
 }: ProductGridProps) {
   return (
-    <section className={`py-16 ${className}`}>
-      <Container>
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-neutral-800">{title}</h2>
-          {viewAllLink && (
-            <Link 
-              href={viewAllLink}
-              className="text-sm text-neutral-600 hover:text-neutral-800 transition-colors underline"
-            >
-              xem tất cả
-            </Link>
-          )}
+    <section className={`py-8 md:py-12 bg-[#f5f0e8] ${className}`}>
+      {/* Full-width container */}
+      <div className="px-4 md:px-6 lg:px-8">
+        {/* Title */}
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-neutral-800 tracking-tight mb-6 md:mb-8">
+          {title}
+          {subtitle && <span className="block text-base md:text-lg text-neutral-500 font-normal mt-2">{subtitle}</span>}
+        </h2>
+
+        {/* Asymmetric Grid - First item large */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+          {products.map((product, index) => {
+            const isFirst = index === 0;
+            
+            return (
+              <Link 
+                key={product.id} 
+                href={product.link}
+                className={`group block relative ${isFirst ? 'col-span-2 row-span-2' : ''}`}
+              >
+                <div className={`relative bg-[#e8e2d8] overflow-hidden ${isFirst ? 'aspect-square' : 'aspect-square'}`}>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                  <h3 className="text-xs md:text-sm font-medium text-neutral-800 uppercase tracking-wider">
+                    {product.name}
+                  </h3>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {products.map((product) => (
-            <Card key={product.id} product={product} />
-          ))}
-        </div>
-      </Container>
+        {viewAllLink && (
+          <div className="text-center mt-10">
+            <Link 
+              href={viewAllLink}
+              className="inline-block px-8 py-3 border border-neutral-800 text-neutral-800 text-sm font-medium hover:bg-neutral-800 hover:text-white transition-colors"
+            >
+              Xem tất cả sản phẩm
+            </Link>
+          </div>
+        )}
+      </div>
     </section>
   );
 }

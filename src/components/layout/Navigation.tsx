@@ -31,7 +31,7 @@ export default function Navigation() {
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/365homevn.png"
-                alt="365homevn"
+                alt="365home.com.vn"
                 width={300}
                 height={100}
                 className="h-20 w-auto md:h-24 invert"

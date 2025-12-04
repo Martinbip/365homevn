@@ -1,4 +1,4 @@
-import { Product, Room } from '@/types';
+import { Product, Room, FeaturedCollection, Story } from '@/types';
 
 export const newProducts: Product[] = [
   {
@@ -75,5 +75,59 @@ export const rooms: Room[] = [
     title: 'Phòng làm việc',
     image: 'https://placehold.co/600x400/7A6A5A/fff?text=Phong+Lam+Viec',
     href: '/phong-lam-viec',
+  },
+];
+
+export const featuredCollections: FeaturedCollection[] = [
+  {
+    id: 'sofa-collection',
+    title: 'Bộ sưu tập Sofa',
+    subtitle: 'Thiết kế thanh lịch & thoải mái',
+    image: '/sofa.png',
+    href: '/bo-suu-tap/sofa',
+    size: 'large',
+  },
+  {
+    id: 'dining-collection',
+    title: 'Phòng ăn hiện đại',
+    subtitle: 'Không gian sum họp ấm cúng',
+    image: '/dining-table.png',
+    href: '/bo-suu-tap/phong-an',
+    size: 'small',
+  },
+  {
+    id: 'bedroom-collection',
+    title: 'Phòng ngủ',
+    subtitle: 'Giấc ngủ ngon với thiết kế tinh tế',
+    image: '/bed.png',
+    href: '/bo-suu-tap/phong-ngu',
+    size: 'small',
+  },
+];
+
+export const stories: Story[] = [
+  {
+    id: 'story-1',
+    title: 'Xu hướng nội thất 2024: Sự trở lại của phong cách Minimalist',
+    excerpt: 'Khám phá cách phong cách tối giản đang định hình lại không gian sống hiện đại với màu sắc trung tính và đường nét tinh tế.',
+    image: 'https://placehold.co/500x400/e8dfd4/333?text=Minimalist+Trend',
+    href: '/tin-tuc/xu-huong-noi-that-2024',
+    category: 'Xu hướng',
+  },
+  {
+    id: 'story-2',
+    title: 'Cách chọn sofa phù hợp cho phòng khách nhỏ',
+    excerpt: 'Hướng dẫn chi tiết giúp bạn lựa chọn sofa hoàn hảo cho không gian sống tinh tế và thoải mái.',
+    image: 'https://placehold.co/500x400/ddd5c8/333?text=Sofa+Guide',
+    href: '/tin-tuc/cach-chon-sofa',
+    category: 'Hướng dẫn',
+  },
+  {
+    id: 'story-3',
+    title: 'Gặp gỡ nhà thiết kế: Câu chuyện đằng sau bộ sưu tập mới',
+    excerpt: 'Trò chuyện cùng các nhà thiết kế về nguồn cảm hứng và quá trình sáng tạo bộ sưu tập mới nhất của 365home.com.vn.',
+    image: 'https://placehold.co/500x400/d2cbbf/333?text=Designer+Story',
+    href: '/tin-tuc/gap-go-nha-thiet-ke',
+    category: 'Câu chuyện',
   },
 ];
