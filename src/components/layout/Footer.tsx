@@ -75,7 +75,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/cua-hang" className="text-neutral-300 hover:text-white transition-colors">
+                <Link href="/san-pham" className="text-neutral-300 hover:text-white transition-colors">
                   Sản phẩm
                 </Link>
               </li>

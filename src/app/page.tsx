@@ -21,7 +21,7 @@ export default function Home() {
         title="Sản phẩm mới"
         subtitle="Khám phá những thiết kế mới nhất từ 365home.com.vn"
         products={newProducts}
-        viewAllLink="/cua-hang"
+        viewAllLink="/san-pham"
       />
 
       <StoriesSection 

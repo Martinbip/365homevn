@@ -3,7 +3,7 @@ import { MenuItem, NavItem } from '@/types';
 export const mainMenu: MenuItem[] = [
   {
     label: 'Sản phẩm',
-    href: '/cua-hang',
+    href: '/san-pham',
     submenu: [
       {
         title: 'Sofa',
