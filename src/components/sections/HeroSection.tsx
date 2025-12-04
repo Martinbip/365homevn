@@ -11,7 +11,7 @@ interface HeroSectionProps {
 export default function HeroSection({ 
   title, 
   subtitle, 
-  image = 'https://placehold.co/1920x600/8B7355/fff?text=Nha+Xinh+Furniture',
+  image = '/hero.jpg',
   className = '' 
 }: HeroSectionProps) {
   return (
