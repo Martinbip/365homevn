@@ -1,5 +1,5 @@
 import HeroSection from '@/components/sections/HeroSection';
-import IntroSection from '@/components/sections/IntroSection';
+import CompanyIntro from '@/components/sections/CompanyIntro';
 import FeaturedShowcase from '@/components/sections/FeaturedShowcase';
 import ProductGrid from '@/components/sections/ProductGrid';
 import StoriesSection from '@/components/sections/StoriesSection';
@@ -10,10 +10,7 @@ export default function Home() {
     <main>
       <HeroSection />
       
-      <IntroSection 
-        title="Thiết kế nội thất tinh tế, lấy cảm hứng từ văn hóa Việt"
-        subtitle="365home.com.vn mang đến những sản phẩm nội thất chất lượng cao, kết hợp hài hòa giữa thẩm mỹ hiện đại và tinh hoa truyền thống Việt Nam."
-      />
+      <CompanyIntro />
 
       <FeaturedShowcase collections={featuredCollections} />
 
