@@ -2,113 +2,89 @@ import { MenuItem, NavItem } from '@/types';
 
 export const mainMenu: MenuItem[] = [
   {
-    label: 'Sản phẩm',
-    href: '/san-pham',
+    label: 'Thiết kế nội thất',
+    href: '/thiet-ke-noi-that',
     submenu: [
       {
-        title: 'Sofa',
+        title: 'Phong cách',
         items: [
-          { label: 'Sofa góc', href: '/danh-muc/sofa-goc' },
-          { label: 'Ghế thư giãn', href: '/danh-muc/ghe-thu-gian' },
-          { label: 'Armchair', href: '/danh-muc/armchair' },
-          { label: 'Ghế dài & đôn', href: '/danh-muc/ghe-dai-don' },
-          { label: 'Bàn bên', href: '/danh-muc/ban-ben' },
-          { label: 'Bàn nước', href: '/danh-muc/ban-nuoc' },
-          { label: 'Bàn Console', href: '/danh-muc/ban-console' },
-          { label: 'Tủ tivi', href: '/danh-muc/tu-tivi' },
-          { label: 'Kệ trưng bày', href: '/danh-muc/ke-trung-bay' },
-          { label: 'Tủ giày', href: '/danh-muc/tu-giay' },
+          { label: 'Hiện đại', href: '/thiet-ke-noi-that/hien-dai' },
+          { label: 'Tân cổ điển', href: '/thiet-ke-noi-that/tan-co-dien' },
+          { label: 'Minimalist', href: '/thiet-ke-noi-that/minimalist' },
+          { label: 'Scandinavian', href: '/thiet-ke-noi-that/scandinavian' },
         ],
       },
-      {
-        title: 'Bàn ăn',
-        items: [
-          { label: 'Bàn ăn', href: '/danh-muc/ban-an' },
-          { label: 'Ghế ăn', href: '/danh-muc/ghe-an' },
-          { label: 'Ghế Bar', href: '/danh-muc/ghe-bar' },
-          { label: 'Tủ ly', href: '/danh-muc/tu-ly' },
-          { label: 'Xe đẩy', href: '/danh-muc/xe-day' },
-          { label: 'Tủ bếp', href: '/danh-muc/tu-bep' },
-          { label: 'Thiết bị bếp', href: '/danh-muc/thiet-bi-bep' },
-        ],
-      },
-      {
-        title: 'Giường ngủ',
-        items: [
-          { label: 'Bàn đầu giường', href: '/danh-muc/ban-dau-giuong' },
-          { label: 'Bàn trang điểm', href: '/danh-muc/ban-trang-diem' },
-          { label: 'Tủ áo', href: '/danh-muc/tu-ao' },
-          { label: 'Tủ âm tường', href: '/danh-muc/tu-am-tuong' },
-          { label: 'Tủ hộc kéo', href: '/danh-muc/tu-hoc-keo' },
-          { label: 'Nệm', href: '/danh-muc/nem' },
-        ],
-      },
-      {
-        title: 'Bàn làm việc',
-        items: [
-          { label: 'Ghế làm việc', href: '/danh-muc/ghe-lam-viec' },
-          { label: 'Kệ sách', href: '/danh-muc/ke-sach' },
-          { label: 'Bàn ngoài trời', href: '/danh-muc/ban-ngoai-troi' },
-          { label: 'Ghế ngoài trời', href: '/danh-muc/ghe-ngoai-troi' },
-        ],
-      },
-      {
-        title: 'Đèn trang trí',
-        items: [
-          { label: 'Thảm trang trí', href: '/danh-muc/tham-trang-tri' },
-          { label: 'Michael Aram', href: '/danh-muc/michael-aram' },
-          { label: 'Đồ trang trí noel', href: '/danh-muc/do-trang-tri-noel' },
-          { label: 'Bình trang trí', href: '/danh-muc/binh-trang-tri' },
-          { label: 'Tranh', href: '/danh-muc/tranh' },
-          { label: 'Gương', href: '/danh-muc/guong' },
-          { label: 'Hoa và cây', href: '/danh-muc/hoa-va-cay' },
-          { label: 'Đồng hồ', href: '/danh-muc/dong-ho' },
-          { label: 'Khung hình', href: '/danh-muc/khung-hinh' },
-          { label: 'Tượng trang trí', href: '/danh-muc/tuong-trang-tri' },
-          { label: 'Gối và thú bông', href: '/danh-muc/goi-va-thu-bong' },
-          { label: 'Nến & chân nến', href: '/danh-muc/nen-chan-nen' },
-        ],
-      },
-      {
-        title: 'Dụng cụ bếp',
-        items: [
-          { label: 'Dụng cụ trang trí khác', href: '/danh-muc/dung-cu-trang-tri-khac' },
-          { label: 'Tinh dầu', href: '/danh-muc/tinh-dau' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Phòng',
-    href: '/phong',
-    submenu: [
       {
         title: 'Không gian',
         items: [
-          { label: 'Phòng khách', href: '/phong/phong-khach' },
-          { label: 'Phòng ăn', href: '/phong/phong-an' },
-          { label: 'Phòng ngủ', href: '/phong/phong-ngu' },
-          { label: 'Phòng làm việc', href: '/phong/phong-lam-viec' },
+          { label: 'Phòng khách', href: '/thiet-ke-noi-that/phong-khach' },
+          { label: 'Phòng ngủ', href: '/thiet-ke-noi-that/phong-ngu' },
+          { label: 'Phòng bếp', href: '/thiet-ke-noi-that/phong-bep' },
+          { label: 'Phòng làm việc', href: '/thiet-ke-noi-that/phong-lam-viec' },
+        ],
+      },
+      {
+        title: 'Loại hình',
+        items: [
+          { label: 'Căn hộ', href: '/thiet-ke-noi-that/can-ho' },
+          { label: 'Nhà phố', href: '/thiet-ke-noi-that/nha-pho' },
+          { label: 'Biệt thự', href: '/thiet-ke-noi-that/biet-thu' },
+          { label: 'Văn phòng', href: '/thiet-ke-noi-that/van-phong' },
         ],
       },
     ],
   },
   {
-    label: 'Bộ sưu tập',
-    href: '/bo-suu-tap',
+    label: 'Thi công nội thất',
+    href: '/thi-cong-noi-that',
   },
   {
-    label: 'Thiết kế nội thất',
-    href: '/thiet-ke-noi-that',
+    label: 'Kiến trúc',
+    href: '/kien-truc',
   },
   {
-    label: 'Góc cảm hứng',
-    href: '/goc-cam-hung',
+    label: 'Dịch vụ/Công trình',
+    href: '/dich-vu',
+    submenu: [
+      {
+        title: 'Dịch vụ',
+        items: [
+          { label: 'Thiết kế kiến trúc', href: '/dich-vu/thiet-ke-kien-truc' },
+          { label: 'Thiết kế nhà ở', href: '/dich-vu/thiet-ke-nha-o' },
+          { label: 'Thiết kế cảnh quan', href: '/dich-vu/thiet-ke-canh-quan' },
+          { label: 'Tư vấn thiết kế', href: '/dich-vu/tu-van-thiet-ke' },
+          { label: 'Giám sát thi công', href: '/dich-vu/giam-sat-thi-cong' },
+        ],
+      },
+      {
+        title: 'Công trình',
+        items: [
+          { label: 'Xây dựng nội thất', href: '/cong-trinh/xay-dung-noi-that' },
+          { label: 'Xây dựng ngoại thất', href: '/cong-trinh/xay-dung-ngoai-that' },
+          { label: 'Xây dựng trọn gói', href: '/cong-trinh/xay-dung-tron-goi' },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Tin tức',
+    href: '/tin-tuc',
+    submenu: [
+      {
+        title: 'Chủ đề',
+        items: [
+          { label: 'Xu hướng thiết kế', href: '/tin-tuc/xu-huong-thiet-ke' },
+          { label: 'Kinh nghiệm', href: '/tin-tuc/kinh-nghiem' },
+          { label: 'Dự án hoàn thành', href: '/tin-tuc/du-an-hoan-thanh' },
+          { label: 'Khuyến mãi', href: '/tin-tuc/khuyen-mai' },
+        ],
+      },
+    ],
   },
 ];
 
 export const topBarLinks: NavItem[] = [
-  { label: '0903 884 358', href: 'tel:0903884358' },
+  { label: '09XXXXXXXX', href: 'tel:0903884358' },
   { label: 'Giới thiệu', href: '/gioi-thieu' },
   { label: 'Khuyến mãi', href: '/khuyen-mai' },
   { label: 'Giảm giá đặc biệt', href: '/danh-muc/giam-gia-dac-biet' },

@@ -7,50 +7,61 @@ import Link from '../common/Link';
 import MobileMenu from '@/components/layout/MobileMenu';
 import { mainMenu } from '@/data/navigation';
 
-export default function Navigation() {
+interface NavigationProps {
+  isScrolled?: boolean;
+}
+
+export default function Navigation({ isScrolled = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
     <>
-      <nav className="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <Container>
-          <div className="flex items-center justify-between h-20">
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2"
-              aria-label="Toggle menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+      <nav 
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? 'bg-white shadow-sm top-10' : 'bg-transparent top-0'
+        }`}
+      >
+        <div className="flex items-center justify-between h-28">
+          {/* Logo - flush to left edge */}
+          <Link href="/" className="flex-shrink-0 pl-4 md:pl-8">
+            <Image
+              src="/365homevn.png"
+              alt="365home.com.vn"
+              width={350}
+              height={100}
+              className={`h-28 w-auto transition-all duration-300 ${isScrolled ? 'invert' : ''}`}
+              priority
+            />
+          </Link>
 
-            {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
-              <Image
-                src="/365homevn.png"
-                alt="365home.com.vn"
-                width={300}
-                height={100}
-                className="h-20 w-auto md:h-24 invert"
-                priority
-              />
-            </Link>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`md:hidden p-2 mr-4 ${isScrolled ? 'text-neutral-800' : 'text-white'}`}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-6 pr-4 md:pr-8 h-full">
               {mainMenu.map((item) => (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative h-full flex items-center"
                   onMouseEnter={() => setActiveDropdown(item.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
                     href={item.href}
-                    className="text-neutral-800 hover:text-neutral-600 transition-colors font-medium uppercase text-sm flex items-center gap-1"
+                    className={`transition-colors font-medium uppercase text-sm flex items-center gap-1 ${
+                      isScrolled 
+                        ? 'text-neutral-800 hover:text-neutral-600' 
+                        : 'text-white hover:text-neutral-200'
+                    }`}
                   >
                     {item.label}
                     {item.submenu && (
@@ -72,7 +83,9 @@ export default function Navigation() {
                       <div className="absolute top-full left-1/2 -translate-x-1/2 w-32 h-[30px] bg-transparent" />
                       
                       <div 
-                        className="fixed left-0 right-0 z-40 top-[110px]"
+                        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+                          isScrolled ? 'top-[150px]' : 'top-[110px]'
+                        }`}
                         onMouseEnter={() => setActiveDropdown(item.label)}
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
@@ -123,37 +136,8 @@ export default function Navigation() {
                 </div>
               ))}
             </div>
-
-            {/* Search Box */}
-            <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  placeholder="Tìm sản phẩm"
-                  className="w-full px-4 py-2 pr-10 border border-neutral-300 rounded-md focus:outline-none focus:border-neutral-500 text-sm"
-                />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-neutral-100 rounded">
-                  <svg className="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Icons */}
-            <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-neutral-100 rounded-full transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-              </button>
-              <Link href="/tai-khoan" className="hidden md:block text-sm hover:text-neutral-600 transition-colors">
-                Đăng nhập
-              </Link>
-            </div>
           </div>
-        </Container>
-      </nav>
+        </nav>
 
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>

@@ -5,9 +5,17 @@ import Container from '../common/Container';
 import Link from '../common/Link';
 import { topBarLinks } from '@/data/navigation';
 
-export default function TopBar() {
+interface TopBarProps {
+  isScrolled?: boolean;
+}
+
+export default function TopBar({ isScrolled = false }: TopBarProps) {
   return (
-    <div className="bg-neutral-800 text-white py-2 text-sm">
+    <div 
+      className={`bg-neutral-800 text-white py-2 text-sm fixed top-0 left-0 right-0 z-[60] transition-transform duration-300 h-10 ${
+        isScrolled ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <Container>
         <div className="flex items-center justify-between">
           <div className="text-xs sm:text-sm">

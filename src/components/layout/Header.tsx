@@ -1,12 +1,25 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import TopBar from './TopBar';
 import Navigation from './Navigation';
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header>
-      <TopBar />
-      <Navigation />
+      <TopBar isScrolled={isScrolled} />
+      <Navigation isScrolled={isScrolled} />
     </header>
   );
 }

@@ -36,7 +36,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           <nav className="space-y-4">
             {mainMenu.map((item) => (
-              <div key={item.label} className="border-b pb-4">
+              <div key={item.label} className="pb-4">
                 <button
                   onClick={() => setExpandedSection(expandedSection === item.label ? null : item.label)}
                   className="w-full flex items-center justify-between text-left font-medium py-2"
@@ -80,7 +80,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ))}
           </nav>
 
-          <div className="mt-6 pt-6 border-t">
+          <div className="mt-6 pt-6">
             <Link
               href="/tai-khoan"
               className="block py-2 text-center bg-neutral-800 text-white rounded hover:bg-neutral-700 transition-colors"
