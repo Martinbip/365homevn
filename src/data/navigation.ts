@@ -84,8 +84,6 @@ export const mainMenu: MenuItem[] = [
 ];
 
 export const topBarLinks: NavItem[] = [
-  { label: '09XXXXXXXX', href: 'tel:0903884358' },
-  { label: 'Giới thiệu', href: '/gioi-thieu' },
-  { label: 'Khuyến mãi', href: '/khuyen-mai' },
-  { label: 'Giảm giá đặc biệt', href: '/danh-muc/giam-gia-dac-biet' },
+  { label: '0971.770.946', href: 'tel:0971770946' },
+  { label: '0393.685.999', href: 'tel:0393685999' },
 ];

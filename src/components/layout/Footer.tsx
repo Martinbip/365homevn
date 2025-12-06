@@ -97,22 +97,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Danh mục</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/phong-khach" className="text-neutral-300 hover:text-white transition-colors">
+                <Link href="/thiet-ke-noi-that/phong-khach" className="text-neutral-300 hover:text-white transition-colors">
                   Phòng khách
                 </Link>
               </li>
               <li>
-                <Link href="/phong-an" className="text-neutral-300 hover:text-white transition-colors">
-                  Phòng ăn
+                <Link href="/thiet-ke-noi-that/phong-bep" className="text-neutral-300 hover:text-white transition-colors">
+                  Phòng bếp
                 </Link>
               </li>
               <li>
-                <Link href="/phong-ngu" className="text-neutral-300 hover:text-white transition-colors">
+                <Link href="/thiet-ke-noi-that/phong-ngu" className="text-neutral-300 hover:text-white transition-colors">
                   Phòng ngủ
                 </Link>
               </li>
               <li>
-                <Link href="/phong-lam-viec" className="text-neutral-300 hover:text-white transition-colors">
+                <Link href="/thiet-ke-noi-that/phong-lam-viec" className="text-neutral-300 hover:text-white transition-colors">
                   Phòng làm việc
                 </Link>
               </li>
@@ -125,10 +125,11 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-neutral-300">
               <li>
                 <a href="tel:0903884358" className="hover:text-white transition-colors">
-                  Hotline: 0903 884 358
+                  Hotline: 0971.770.946 - 0393.685.999
                 </a>
               </li>
               <li>Email: 365homevndesign@gmail.com</li>
+              <li>Địa chỉ: 351 Trần Nhân Tông - Kiến An - Hải Phòng</li>
               <li>Giờ làm việc: 9:00 - 21:00</li>
             </ul>
           </div>
