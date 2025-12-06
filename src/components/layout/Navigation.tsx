@@ -9,9 +9,10 @@ import { mainMenu } from '@/data/navigation';
 
 interface NavigationProps {
   isScrolled?: boolean;
+  isHomePage?: boolean;
 }
 
-export default function Navigation({ isScrolled = false }: NavigationProps) {
+export default function Navigation({ isScrolled = false, isHomePage = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -19,7 +20,11 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
     <>
       <nav 
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-sm top-10' : 'bg-transparent top-0'
+          isScrolled 
+            ? 'bg-white shadow-sm top-10' 
+            : isHomePage 
+              ? 'bg-transparent top-0' 
+              : 'bg-white shadow-sm top-10'
         }`}
       >
         <div className="flex items-center justify-between h-28">
@@ -30,7 +35,9 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
               alt="365home.com.vn"
               width={350}
               height={100}
-              className={`h-28 w-auto transition-all duration-300 ${isScrolled ? 'invert' : ''}`}
+              className={`h-28 w-auto transition-all duration-300 ${
+                isHomePage && !isScrolled ? '' : 'invert'
+              }`}
               priority
             />
           </Link>
@@ -38,7 +45,9 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden p-2 mr-4 ${isScrolled ? 'text-neutral-800' : 'text-white'}`}
+            className={`md:hidden p-2 mr-4 ${
+              isHomePage && !isScrolled ? 'text-white' : 'text-neutral-800'
+            }`}
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,9 +67,9 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
                   <Link
                     href={item.href}
                     className={`transition-colors font-medium uppercase text-sm flex items-center gap-1 ${
-                      isScrolled 
-                        ? 'text-neutral-800 hover:text-neutral-600' 
-                        : 'text-white hover:text-neutral-200'
+                      isHomePage && !isScrolled
+                        ? 'text-white hover:text-neutral-200'
+                        : 'text-neutral-800 hover:text-neutral-600'
                     }`}
                   >
                     {item.label}

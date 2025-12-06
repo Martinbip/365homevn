@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/common/SkipLink";
+import MainWrapper from "@/components/layout/MainWrapper";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://365home.com.vn'),
@@ -56,9 +57,9 @@ export default function RootLayout({
       <body className="antialiased">
         <SkipLink />
         <Header />
-        <main id="main-content">
+        <MainWrapper>
           {children}
-        </main>
+        </MainWrapper>
         <Footer />
       </body>
     </html>
