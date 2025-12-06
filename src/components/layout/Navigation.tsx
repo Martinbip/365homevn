@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Container from '../common/Container';
 import Link from '../common/Link';
@@ -15,6 +16,39 @@ interface NavigationProps {
 export default function Navigation({ isScrolled = false, isHomePage = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+
+  // Close dropdown when navigating to a new page
+  useEffect(() => {
+    setActiveDropdown(null);
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  // Clear timer on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = (label: string) => {
+    // Clear any pending close timer
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    // Delay closing to allow user to move to dropdown
+    closeTimerRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 500); // 150ms delay
+  };
 
   return (
     <>
@@ -61,8 +95,8 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
                 <div
                   key={item.label}
                   className="relative h-full flex items-center"
-                  onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <Link
                     href={item.href}
@@ -88,15 +122,15 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
                   {/* Dropdown Menu */}
                   {item.submenu && activeDropdown === item.label && (
                     <>
-                      {/* Invisible bridge to connect menu item to dropdown */}
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 w-32 h-[30px] bg-transparent" />
+                      {/* Invisible bridge to connect menu item to dropdown - full width for easier mouse movement */}
+                      <div className="absolute top-full left-0 right-0 h-8 bg-transparent" />
                       
                       <div 
                         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
                           isScrolled ? 'top-[150px]' : 'top-[110px]'
                         }`}
-                        onMouseEnter={() => setActiveDropdown(item.label)}
-                        onMouseLeave={() => setActiveDropdown(null)}
+                        onMouseEnter={() => handleMouseEnter(item.label)}
+                        onMouseLeave={handleMouseLeave}
                       >
                         <div className="bg-white shadow-2xl border-t">
                           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
