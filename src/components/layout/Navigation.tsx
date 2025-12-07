@@ -9,11 +9,10 @@ import MobileMenu from '@/components/layout/MobileMenu';
 import { mainMenu } from '@/data/navigation';
 
 interface NavigationProps {
-  isScrolled?: boolean;
   isHomePage?: boolean;
 }
 
-export default function Navigation({ isScrolled = false, isHomePage = false }: NavigationProps) {
+export default function Navigation({ isHomePage = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -52,15 +51,11 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
 
   return (
     <>
-      <nav 
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white shadow-sm top-10' 
-            : isHomePage 
-              ? 'bg-transparent top-0' 
-              : 'bg-white shadow-sm top-10'
-        }`}
-      >
+      <nav className={`${
+        isHomePage 
+          ? 'absolute top-0 left-0 right-0 bg-transparent z-50' 
+          : 'relative bg-white shadow-sm'
+      }`}>
         <div className="flex items-center justify-between h-28">
           {/* Logo - flush to left edge */}
           <Link href="/" className="flex-shrink-0 pl-4 md:pl-8">
@@ -69,8 +64,8 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
               alt="365home.com.vn"
               width={350}
               height={100}
-              className={`h-28 w-auto transition-all duration-300 ${
-                isHomePage && !isScrolled ? '' : 'invert'
+              className={`h-28 w-auto ${
+                isHomePage ? '' : 'invert'
               }`}
               priority
             />
@@ -80,7 +75,7 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden p-2 mr-4 ${
-              isHomePage && !isScrolled ? 'text-white' : 'text-neutral-800'
+              isHomePage ? 'text-white' : 'text-neutral-800'
             }`}
             aria-label="Toggle menu"
           >
@@ -101,7 +96,7 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
                   <Link
                     href={item.href}
                     className={`transition-colors font-medium uppercase text-sm flex items-center gap-1 ${
-                      isHomePage && !isScrolled
+                      isHomePage
                         ? 'text-white hover:text-neutral-200'
                         : 'text-neutral-800 hover:text-neutral-600'
                     }`}
@@ -126,9 +121,8 @@ export default function Navigation({ isScrolled = false, isHomePage = false }: N
                       <div className="absolute top-full left-0 right-0 h-8 bg-transparent" />
                       
                       <div 
-                        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-                          isScrolled ? 'top-[150px]' : 'top-[110px]'
-                        }`}
+                        className="fixed left-0 right-0 z-40"
+                        style={{ top: isHomePage ? '112px' : '152px' }}
                         onMouseEnter={() => handleMouseEnter(item.label)}
                         onMouseLeave={handleMouseLeave}
                       >
