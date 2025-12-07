@@ -1,0 +1,96 @@
+.scrollToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #8a5b42 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.scrollToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scrollToTop:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.scrollToTop:active {
+  transform: translateY(-2px) scale(1);
+}
+
+.icon {
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.scrollToTop:hover .icon {
+  transform: translateY(-2px);
+  animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .scrollToTop {
+    width: 3rem;
+    height: 3rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn */
+@media (max-width: 480px) {
+  .scrollToTop {
+    width: 2.75rem;
+    height: 2.75rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .scrollToTop {
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  }
+  
+  .scrollToTop:hover {
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+  }
+}

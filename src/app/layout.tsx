@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SkipLink from "@/components/common/SkipLink";
 import MainWrapper from "@/components/layout/MainWrapper";
+import FloatingActionButtons from "@/components/common/FloatingActionButtons";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://365home.com.vn'),
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
         </MainWrapper>
         <Footer />
+        <FloatingActionButtons />
       </body>
     </html>
   );
